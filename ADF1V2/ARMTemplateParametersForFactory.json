@@ -5,9 +5,6 @@
 		"factoryName": {
 			"value": "ADF1V2"
 		},
-		"AzureSqlDatabase1_password": {
-			"value": ""
-		},
 		"sa1vp1ls1_connectionString": {
 			"value": ""
 		},
@@ -28,6 +25,9 @@
 		},
 		"TumblingTrigger1_properties_pipeline_parameters_penddate": {
 			"value": "@trigger().outputs.windowEndtime"
+		},
+		"LS_Keyvault_Dev_properties_typeProperties_baseUrl": {
+			"value": "https://KV-Dev-VP.vault.azure.net/"
 		}
 	}
 }
