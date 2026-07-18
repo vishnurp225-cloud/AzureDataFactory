@@ -609,7 +609,7 @@
 					"type": "LinkedServiceReference",
 					"parameters": {
 						"DatabaseName": "SQL1VPDB",
-						"TestParameter": "4"
+						"TestParameter": "55"
 					}
 				},
 				"annotations": [],
