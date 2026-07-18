@@ -1,0 +1,24 @@
+{
+	"name": "Pipeline2-Trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Pipeline2 - Trigger",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/inputcsv/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/7e903a24-a469-4dc8-a4ad-d97e5be88b1f/resourceGroups/RG1/providers/Microsoft.Storage/storageAccounts/sa1vp1",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"name": "ADF1V2",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8feabb77-c346-464a-8b61-b00d9ded5c13",
+		"tenantId": "47da6850-9851-433b-bcb7-fd13cf040bbf"
+	}
+}
