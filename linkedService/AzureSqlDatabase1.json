@@ -5,6 +5,10 @@
 			"DatabaseName": {
 				"type": "String",
 				"defaultValue": "SQL1VPDB"
+			},
+			"TestParameter": {
+				"type": "String",
+				"defaultValue": "1"
 			}
 		},
 		"annotations": [],
