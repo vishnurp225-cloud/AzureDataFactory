@@ -12,10 +12,13 @@
 			"value": "sql1vpserver.database.windows.net"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_database": {
-			"value": "SQL1VPDB"
+			"value": "@{linkedService().DatabaseName}"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "gautham"
+		},
+		"LS_Keyvault_Dev_properties_typeProperties_baseUrl": {
+			"value": "https://KV-Dev-VP.vault.azure.net/"
 		},
 		"Pipeline2-Trigger_properties_typeProperties_scope": {
 			"value": "/subscriptions/7e903a24-a469-4dc8-a4ad-d97e5be88b1f/resourceGroups/RG1/providers/Microsoft.Storage/storageAccounts/sa1vp1"
@@ -25,9 +28,6 @@
 		},
 		"TumblingTrigger1_properties_pipeline_parameters_penddate": {
 			"value": "@trigger().outputs.windowEndtime"
-		},
-		"LS_Keyvault_Dev_properties_typeProperties_baseUrl": {
-			"value": "https://KV-Dev-VP.vault.azure.net/"
 		},
 		"containerUri": {
 			"value": ""

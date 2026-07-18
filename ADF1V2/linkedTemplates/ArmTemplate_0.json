@@ -21,7 +21,7 @@
 		},
 		"AzureSqlDatabase1_properties_typeProperties_database": {
 			"type": "string",
-			"defaultValue": "SQL1VPDB"
+			"defaultValue": "@{linkedService().DatabaseName}"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"type": "string",
@@ -44,6 +44,19 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_Keyvault_Dev')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('LS_Keyvault_Dev_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/sa1vp1ls1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
@@ -74,19 +87,6 @@
 						"endTime": "2024-03-06T00:00:00",
 						"timeZone": "GMT Standard Time"
 					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LS_Keyvault_Dev')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureKeyVault",
-				"typeProperties": {
-					"baseUrl": "[parameters('LS_Keyvault_Dev_properties_typeProperties_baseUrl')]"
 				}
 			},
 			"dependsOn": []
@@ -298,6 +298,16 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"parameters": {
+					"DatabaseName": {
+						"type": "String",
+						"defaultValue": "SQL1VPDB"
+					},
+					"TestParameter": {
+						"type": "String",
+						"defaultValue": "1"
+					}
+				},
 				"annotations": [],
 				"type": "AzureSqlDatabase",
 				"typeProperties": {
@@ -596,7 +606,11 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "AzureSqlDatabase1",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"DatabaseName": "SQL1VPDB",
+						"TestParameter": "1"
+					}
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
