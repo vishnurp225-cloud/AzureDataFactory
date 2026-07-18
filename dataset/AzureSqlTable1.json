@@ -3,7 +3,11 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"DBNAME": "11",
+				"DBNAME1": "11"
+			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
