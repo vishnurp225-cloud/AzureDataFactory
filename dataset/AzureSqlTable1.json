@@ -5,7 +5,8 @@
 			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"DatabaseName": "SQL1VPDB"
+				"DatabaseName": "SQL1VPDB",
+				"TestParameter": "1"
 			}
 		},
 		"annotations": [],
