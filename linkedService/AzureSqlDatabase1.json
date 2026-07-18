@@ -1,11 +1,17 @@
 {
 	"name": "AzureSqlDatabase1",
 	"properties": {
+		"parameters": {
+			"DatabaseName": {
+				"type": "String",
+				"defaultValue": "SQL1VPDB"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
 			"server": "sql1vpserver.database.windows.net",
-			"database": "SQL1VPDB",
+			"database": "@{linkedService().DatabaseName}",
 			"encrypt": "mandatory",
 			"trustServerCertificate": false,
 			"authenticationType": "SQL",
