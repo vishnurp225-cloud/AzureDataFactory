@@ -1,15 +1,6 @@
 {
 	"name": "AzureSqlDatabase1",
 	"properties": {
-		"parameters": {
-			"DBNAME": {
-				"type": "String",
-				"defaultValue": "SQL1VPDB"
-			},
-			"DBNAME1": {
-				"type": "String"
-			}
-		},
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
