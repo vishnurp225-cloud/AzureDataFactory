@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference",
 			"parameters": {
 				"DatabaseName": "SQL1VPDB",
-				"TestParameter": "269660"
+				"TestParameter": "2696600"
 			}
 		},
 		"annotations": [],
