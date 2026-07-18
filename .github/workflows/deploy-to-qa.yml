@@ -25,6 +25,4 @@ jobs:
           dataFactoryName: 'ADF1V2-QA'
           armTemplateFile: 'ADF1V2/ARMTemplateForFactory.json'
           armTemplateParametersFile: 'ADF1V2/ARMTemplateParametersForFactory.json'
-	  additionalParameters: >-
-	    -LS_KeyVault_Dev_properties_typeProperties_baseUrl "https://kv-qa-vp.vault.azure.net/"
-	    -AzureSqlDatabase1_properties_parameters_DatabaseName_defaultValue "SQL1VPDB"
+          additionalParameters: '-LS_KeyVault_Dev_properties_typeProperties_baseUrl "https://kv-qa-vp.vault.azure.net/" -AzureSqlDatabase1_properties_parameters_DatabaseName_defaultValue "SQL1VPDB"'
