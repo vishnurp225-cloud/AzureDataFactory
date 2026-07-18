@@ -1,29 +1,31 @@
 on:
-push:
-branches:
-- adf_publish
+  push:
+    branches:
+      - adf_publish
 
 jobs:
-deploy-qa:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout Code
-uses: actions/checkout@v3
-with:
-ref: adf_publish
+  deploy-qa:
+    runs-on: ubuntu-latest
 
-- name: Azure Login
-uses: azure/login@v1
-with:
-creds: ${{ secrets.AZURE_CREDENTIALS }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: adf_publish
 
-- name: Deploy Data Factory
-uses: Azure/data-factory-deploy-action@v1.2.0
-with:
-resourceGroupName: 'RG1'
-dataFactoryName: 'ADF1V2-QA'
-armTemplateFile: 'ADF1V2/ARMTemplateForFactory.json'
-armTemplateParametersFile: 'ADF1V2/ARMTemplateParametersForFactory.json'
-additionalParameters: >-
--LS_KeyVault_Dev_properties_typeProperties_baseUrl "https://kv-qa-vp.vault.azure.net/"
--AzureSqlDatabase1_properties_parameters_DatabaseName_defaultValue "SQL1VPDB"
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Data Factory
+        uses: Azure/data-factory-deploy-action@v1.2.0
+        with:
+          resourceGroupName: 'RG1'
+          dataFactoryName: 'ADF1V2-QA'
+          armTemplateFile: 'ADF1V2/ARMTemplateForFactory.json'
+          armTemplateParametersFile: 'ADF1V2/ARMTemplateParametersForFactory.json'
+
+          additionalParameters: >
+            LS_KeyVault_Dev_properties_typeProperties_baseUrl=https://kv-qa-vp.vault.azure.net/
+            AzureSqlDatabase1_properties_parameters_DatabaseName_defaultValue=SQL1VPDB
