@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADF1V2"
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"sa1vp1ls1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sql1vpserver.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "SQL1VPDB"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "gautham"
+		},
+		"Pipeline2-Trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/7e903a24-a469-4dc8-a4ad-d97e5be88b1f/resourceGroups/RG1/providers/Microsoft.Storage/storageAccounts/sa1vp1"
+		},
+		"TumblingTrigger1_properties_pipeline_parameters_pstartdate": {
+			"value": "@trigger().outputs.windowstarttime"
+		},
+		"TumblingTrigger1_properties_pipeline_parameters_penddate": {
+			"value": "@trigger().outputs.windowEndtime"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
