@@ -14,7 +14,7 @@
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
 			"server": "sql1vpserver.database.windows.net",
-			"database": "@{linkedService().DBNAME1}",
+			"database": "SQL1VPDB",
 			"encrypt": "mandatory",
 			"trustServerCertificate": false,
 			"authenticationType": "SQL",
