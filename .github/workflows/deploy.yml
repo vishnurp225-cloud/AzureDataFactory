@@ -3,6 +3,9 @@ on:
     branches:
       - adf_publish
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy-qa:
     runs-on: ubuntu-latest
