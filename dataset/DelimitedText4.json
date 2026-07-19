@@ -3,7 +3,10 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "sa1vp1ls1",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"StorageAccountParameter": "sa1vp1"
+			}
 		},
 		"parameters": {
 			"start": {
