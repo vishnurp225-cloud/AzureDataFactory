@@ -9,7 +9,8 @@
 		},
 		"sa1vp1ls1_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'sa1vp1ls1'"
+			"metadata": "Secure string for 'connectionString' of 'sa1vp1ls1'",
+			"defaultValue": "DefaultEndpointsProtocol=https;AccountName=@{linkedService().StorageAccountParameter};EndpointSuffix=core.windows.net;"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
@@ -570,7 +571,10 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "sa1vp1ls1",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"StorageAccountParameter": "sa1vp1"
+					}
 				},
 				"parameters": {
 					"start": {
@@ -698,13 +702,29 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"parameters": {
+					"StorageAccountParameter": {
+						"type": "String",
+						"defaultValue": "sa1vp1"
+					}
+				},
 				"annotations": [],
 				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"connectionString": "[parameters('sa1vp1ls1_connectionString')]"
+					"connectionString": "[parameters('sa1vp1ls1_connectionString')]",
+					"accountKey": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "LS_Keyvault_Dev",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "SAKey"
+					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_Keyvault_Dev')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Pipeline2-Trigger')]",

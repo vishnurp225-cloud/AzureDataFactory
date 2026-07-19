@@ -9,7 +9,8 @@
 		},
 		"sa1vp1ls1_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'sa1vp1ls1'"
+			"metadata": "Secure string for 'connectionString' of 'sa1vp1ls1'",
+			"defaultValue": "DefaultEndpointsProtocol=https;AccountName=@{linkedService().StorageAccountParameter};EndpointSuffix=core.windows.net;"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",

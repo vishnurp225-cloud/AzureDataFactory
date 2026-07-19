@@ -9,7 +9,8 @@
 		},
 		"sa1vp1ls1_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'sa1vp1ls1'"
+			"metadata": "Secure string for 'connectionString' of 'sa1vp1ls1'",
+			"defaultValue": "DefaultEndpointsProtocol=https;AccountName=@{linkedService().StorageAccountParameter};EndpointSuffix=core.windows.net;"
 		},
 		"LS_Keyvault_Dev_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -58,19 +59,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/sa1vp1ls1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('sa1vp1ls1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/TumblingTrigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -90,6 +78,95 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"parameters": {
+					"DatabaseName": {
+						"type": "String",
+						"defaultValue": "SQL1VPDB"
+					},
+					"TestParameter": {
+						"type": "String",
+						"defaultValue": "1"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]",
+					"database": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "LS_Keyvault_Dev",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "ADF-DB-Dev"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_Keyvault_Dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sa1vp1ls1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"parameters": {
+					"StorageAccountParameter": {
+						"type": "String",
+						"defaultValue": "sa1vp1"
+					}
+				},
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('sa1vp1ls1_connectionString')]",
+					"accountKey": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "LS_Keyvault_Dev",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "SAKey"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_Keyvault_Dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"DatabaseName": "SQL1VPDB",
+						"TestParameter": "261112"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Binary1')]",
@@ -221,7 +298,10 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "sa1vp1ls1",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"StorageAccountParameter": "sa1vp1"
+					}
 				},
 				"parameters": {
 					"start": {
@@ -291,44 +371,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/sa1vp1ls1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"parameters": {
-					"DatabaseName": {
-						"type": "String",
-						"defaultValue": "SQL1VPDB"
-					},
-					"TestParameter": {
-						"type": "String",
-						"defaultValue": "1"
-					}
-				},
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"server": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]",
-					"database": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]",
-					"encrypt": "mandatory",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]",
-					"password": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "LS_Keyvault_Dev",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "ADF-DB-Dev"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_Keyvault_Dev')]"
 			]
 		},
 		{
@@ -597,28 +639,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DelimitedText3')]",
 				"[concat(variables('factoryId'), '/datasets/Json1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase1",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"DatabaseName": "SQL1VPDB",
-						"TestParameter": "261112"
-					}
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
 			]
 		},
 		{

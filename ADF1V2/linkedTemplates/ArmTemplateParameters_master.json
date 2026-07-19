@@ -6,7 +6,7 @@
 			"value": "ADF1V2"
 		},
 		"sa1vp1ls1_connectionString": {
-			"value": ""
+			"value": "DefaultEndpointsProtocol=https;AccountName=@{linkedService().StorageAccountParameter};EndpointSuffix=core.windows.net;"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "sql1vpserver.database.windows.net"
