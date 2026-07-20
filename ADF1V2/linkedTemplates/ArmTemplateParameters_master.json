@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "ADF1V2"
 		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
 		"sa1vp1ls1_connectionString": {
 			"value": "DefaultEndpointsProtocol=https;AccountName=@{linkedService().StorageAccountParameter};EndpointSuffix=core.windows.net;"
 		},
@@ -15,6 +18,15 @@
 			"value": "@{linkedService().DatabaseName}"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "gautham"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "sql1vpserver.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "SQL1VPDB"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
 			"value": "gautham"
 		},
 		"LS_Keyvault_Dev_properties_typeProperties_baseUrl": {
