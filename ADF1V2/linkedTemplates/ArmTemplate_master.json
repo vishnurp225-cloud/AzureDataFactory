@@ -109,9 +109,6 @@
 					},
 					"AzureSqlDatabase1_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
-					},
-					"Pipeline2-Trigger_properties_typeProperties_scope": {
-						"value": "[parameters('Pipeline2-Trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
@@ -130,6 +127,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"Pipeline2-Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Pipeline2-Trigger_properties_typeProperties_scope')]"
 					},
 					"TumblingTrigger1_properties_pipeline_parameters_pstartdate": {
 						"value": "[parameters('TumblingTrigger1_properties_pipeline_parameters_pstartdate')]"
