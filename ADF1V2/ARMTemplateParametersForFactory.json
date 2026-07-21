@@ -11,6 +11,12 @@
 		"sa1vp1ls1_connectionString": {
 			"value": "DefaultEndpointsProtocol=https;AccountName=@{linkedService().StorageAccountParameter};EndpointSuffix=core.windows.net;"
 		},
+		"AzureSqlDatabase3_password": {
+			"value": ""
+		},
+		"Parameterization_LS_password": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "sql1vpserver.database.windows.net"
 		},
@@ -40,6 +46,24 @@
 		},
 		"TumblingTrigger1_properties_pipeline_parameters_penddate": {
 			"value": "@trigger().outputs.windowEndtime"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"value": "sql1vpserver.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"value": "SQL1VPDB"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"value": "gautham"
+		},
+		"Parameterization_LS_properties_typeProperties_server": {
+			"value": "sql1vpserver.database.windows.net"
+		},
+		"Parameterization_LS_properties_typeProperties_database": {
+			"value": "SQL1VPDB"
+		},
+		"Parameterization_LS_properties_typeProperties_userName": {
+			"value": "gautham"
 		}
 	}
 }
