@@ -14,7 +14,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@concat('Test','Value')",
+					"value": "@concat('Test','Value','.csv')",
 					"type": "Expression"
 				},
 				"container": "output"
