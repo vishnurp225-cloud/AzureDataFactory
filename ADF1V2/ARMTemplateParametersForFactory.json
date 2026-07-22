@@ -5,16 +5,22 @@
 		"factoryName": {
 			"value": "ADF1V2"
 		},
-		"AzureSqlDatabase2_password": {
+		"AzureBlobStorage_parameterised_connectionString": {
 			"value": ""
 		},
-		"sa1vp1ls1_connectionString": {
-			"value": "DefaultEndpointsProtocol=https;AccountName=@{linkedService().StorageAccountParameter};EndpointSuffix=core.windows.net;"
+		"AzureSqlDatabase2_password": {
+			"value": ""
 		},
 		"AzureSqlDatabase3_password": {
 			"value": ""
 		},
 		"Parameterization_LS_password": {
+			"value": ""
+		},
+		"pipelineparameterization_password": {
+			"value": ""
+		},
+		"sa1vp1ls1_connectionString": {
 			"value": ""
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
@@ -35,18 +41,6 @@
 		"AzureSqlDatabase2_properties_typeProperties_userName": {
 			"value": "gautham"
 		},
-		"LS_Keyvault_Dev_properties_typeProperties_baseUrl": {
-			"value": "https://KV-Dev-VP.vault.azure.net/"
-		},
-		"Pipeline2-Trigger_properties_typeProperties_scope": {
-			"value": "/subscriptions/7e903a24-a469-4dc8-a4ad-d97e5be88b1f/resourceGroups/RG1/providers/Microsoft.Storage/storageAccounts/sa1vp1"
-		},
-		"TumblingTrigger1_properties_pipeline_parameters_pstartdate": {
-			"value": "@trigger().outputs.windowstarttime"
-		},
-		"TumblingTrigger1_properties_pipeline_parameters_penddate": {
-			"value": "@trigger().outputs.windowEndtime"
-		},
 		"AzureSqlDatabase3_properties_typeProperties_server": {
 			"value": "sql1vpserver.database.windows.net"
 		},
@@ -56,6 +50,9 @@
 		"AzureSqlDatabase3_properties_typeProperties_userName": {
 			"value": "gautham"
 		},
+		"LS_Keyvault_Dev_properties_typeProperties_baseUrl": {
+			"value": "https://KV-Dev-VP.vault.azure.net/"
+		},
 		"Parameterization_LS_properties_typeProperties_server": {
 			"value": "sql1vpserver.database.windows.net"
 		},
@@ -64,6 +61,24 @@
 		},
 		"Parameterization_LS_properties_typeProperties_userName": {
 			"value": "gautham"
+		},
+		"pipelineparameterization_properties_typeProperties_server": {
+			"value": "sql1vpserver.database.windows.net"
+		},
+		"pipelineparameterization_properties_typeProperties_database": {
+			"value": "SQL1VPDB"
+		},
+		"pipelineparameterization_properties_typeProperties_userName": {
+			"value": "gautham"
+		},
+		"Pipeline2-Trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/7e903a24-a469-4dc8-a4ad-d97e5be88b1f/resourceGroups/RG1/providers/Microsoft.Storage/storageAccounts/sa1vp1"
+		},
+		"TumblingTrigger1_properties_pipeline_parameters_pstartdate": {
+			"value": "@trigger().outputs.windowstarttime"
+		},
+		"TumblingTrigger1_properties_pipeline_parameters_penddate": {
+			"value": "@trigger().outputs.windowEndtime"
 		}
 	}
 }
