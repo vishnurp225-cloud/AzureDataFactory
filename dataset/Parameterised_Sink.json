@@ -2,11 +2,8 @@
 	"name": "Parameterised_Sink",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "sa1vp1ls1",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"StorageAccountParameter": "sa1vp1"
-			}
+			"referenceName": "AzureBlobStorage_parameterised",
+			"type": "LinkedServiceReference"
 		},
 		"parameters": {
 			"ContainerName_DS": {
