@@ -1,0 +1,23 @@
+{
+	"name": "AzureSqlPipelinepara",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "pipelineparameterization",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableName_DS": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"table": {
+				"value": "@dataset().TableName_DS",
+				"type": "Expression"
+			}
+		}
+	}
+}
