@@ -44,19 +44,34 @@
 				"inputs": [
 					{
 						"referenceName": "AzureSqlPipelinepara",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName_DS": {
+								"value": "@pipeline().parameters.TableName_PipeLine",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "Parameterised_Sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"ContainerName_DS": {
+								"value": "@pipeline().parameters.ContainerName_Pipeline",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
 		"parameters": {
 			"TableName_PipeLine": {
+				"type": "string"
+			},
+			"ContainerName_Pipeline": {
 				"type": "string"
 			}
 		},
