@@ -38,7 +38,7 @@
 					{
 						"activity": "Get Metadata1",
 						"dependencyConditions": [
-							"Skipped"
+							"Succeeded"
 						]
 					}
 				],
