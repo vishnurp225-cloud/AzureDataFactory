@@ -16,7 +16,8 @@
 				"fileName": {
 					"value": "@concat('Hai','Test')",
 					"type": "Expression"
-				}
+				},
+				"container": "output"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
