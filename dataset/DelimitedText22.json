@@ -12,7 +12,8 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"container": "inputmetadata1"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
