@@ -590,7 +590,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": {
-							"value": "@concat('Hai','Test')",
+							"value": "@concat('Hai','Test','.csv')",
 							"type": "Expression"
 						},
 						"container": "output"
