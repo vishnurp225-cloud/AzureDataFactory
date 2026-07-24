@@ -199,7 +199,7 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"employeefilename": {
-														"value": "item().name",
+														"value": "@concat(item().name,'.csv')",
 														"type": "Expression"
 													}
 												}
