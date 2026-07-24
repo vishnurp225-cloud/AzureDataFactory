@@ -8,6 +8,11 @@
 				"StorageAccountParameter": "sa1vp1"
 			}
 		},
+		"parameters": {
+			"employeefilename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
