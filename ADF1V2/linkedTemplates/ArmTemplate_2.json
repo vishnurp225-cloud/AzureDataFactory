@@ -746,7 +746,7 @@
 												"typeProperties": {
 													"variableName": "file",
 													"value": {
-														"value": "@activity('Get Metadata1').output.itemName",
+														"value": "item().name",
 														"type": "Expression"
 													}
 												}
@@ -836,7 +836,7 @@
 												"typeProperties": {
 													"variableName": "file",
 													"value": {
-														"value": "@activity('Get Metadata1').output.itemName",
+														"value": "item().name",
 														"type": "Expression"
 													}
 												}
