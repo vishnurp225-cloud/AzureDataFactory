@@ -1159,7 +1159,7 @@
 															"type": "AzureBlobStorageReadSettings",
 															"recursive": true,
 															"wildcardFileName": {
-																"value": "@activity('Get Metadata1').output.itemName",
+																"value": "item().name",
 																"type": "Expression"
 															},
 															"enablePartitionDiscovery": false
@@ -1246,7 +1246,7 @@
 															"type": "AzureBlobStorageReadSettings",
 															"recursive": true,
 															"wildcardFileName": {
-																"value": "@activity('Get Metadata1').output.itemName",
+																"value": "item().name",
 																"type": "Expression"
 															},
 															"enablePartitionDiscovery": false
