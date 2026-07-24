@@ -72,7 +72,10 @@
 										"userProperties": [],
 										"typeProperties": {
 											"variableName": "file",
-											"value": "department"
+											"value": {
+												"value": "@activity('Get Metadata1').output.itemName",
+												"type": "Expression"
+											}
 										}
 									},
 									{
@@ -157,7 +160,10 @@
 										"userProperties": [],
 										"typeProperties": {
 											"variableName": "file",
-											"value": "employee"
+											"value": {
+												"value": "@activity('Get Metadata1').output.itemName",
+												"type": "Expression"
+											}
 										}
 									},
 									{
