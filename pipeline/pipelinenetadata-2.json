@@ -156,7 +156,13 @@
 										"outputs": [
 											{
 												"referenceName": "DelimitedText25",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"employeefilename": {
+														"value": "item().name",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
