@@ -70,7 +70,7 @@
 										},
 										"userProperties": [],
 										"typeProperties": {
-											"variableName": "fileemp",
+											"variableName": "file",
 											"value": "department"
 										}
 									}
@@ -86,7 +86,7 @@
 										},
 										"userProperties": [],
 										"typeProperties": {
-											"variableName": "fileemp",
+											"variableName": "file",
 											"value": "empfile"
 										}
 									}
@@ -98,7 +98,7 @@
 			}
 		],
 		"variables": {
-			"fileemp": {
+			"file": {
 				"type": "String"
 			}
 		},
