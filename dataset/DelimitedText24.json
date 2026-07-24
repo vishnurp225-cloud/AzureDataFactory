@@ -3,13 +3,21 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "sa1vp1ls1",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"StorageAccountParameter": "sa1vp1"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "item().name",
+					"type": "Expression"
+				},
+				"container": "inputmetadata1"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
