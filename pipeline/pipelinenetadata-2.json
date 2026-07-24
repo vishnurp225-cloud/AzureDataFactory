@@ -45,10 +45,6 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
-					"items": {
-						"value": "@activity('Get Metadata1').output.childItems",
-						"type": "Expression"
-					},
 					"activities": [
 						{
 							"name": "If Condition1",
@@ -73,7 +69,7 @@
 										"typeProperties": {
 											"variableName": "file",
 											"value": {
-												"value": "@activity('Get Metadata1').output.itemName",
+												"value": "item().name",
 												"type": "Expression"
 											}
 										}
@@ -161,7 +157,7 @@
 										"typeProperties": {
 											"variableName": "file",
 											"value": {
-												"value": "@activity('Get Metadata1').output.itemName",
+												"value": "item().name",
 												"type": "Expression"
 											}
 										}
