@@ -140,7 +140,13 @@
 										"outputs": [
 											{
 												"referenceName": "DelimitedText27",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"departmentfilename": {
+														"value": "@concat(item().name,'.csv')",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
