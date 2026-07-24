@@ -161,7 +161,7 @@
 										"typeProperties": {
 											"variableName": "file",
 											"value": {
-												"value": "item().name",
+												"value": "@concat(item().name,'-')",
 												"type": "Expression"
 											}
 										}
