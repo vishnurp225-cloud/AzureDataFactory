@@ -8,20 +8,11 @@
 				"StorageAccountParameter": "sa1vp1"
 			}
 		},
-		"parameters": {
-			"employeefilename": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": {
-					"value": "@dataset().employeefilename",
-					"type": "Expression"
-				},
 				"container": "outputmetadataemployee"
 			},
 			"columnDelimiter": ",",
