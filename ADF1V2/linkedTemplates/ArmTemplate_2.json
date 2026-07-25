@@ -752,7 +752,7 @@
 												}
 											},
 											{
-												"name": "Copy data2",
+												"name": "Copy department",
 												"type": "Copy",
 												"dependsOn": [
 													{
@@ -777,7 +777,7 @@
 															"type": "AzureBlobStorageReadSettings",
 															"recursive": true,
 															"wildcardFileName": {
-																"value": "@variables('file')",
+																"value": "@item().name",
 																"type": "Expression"
 															},
 															"enablePartitionDiscovery": false
@@ -842,7 +842,7 @@
 												}
 											},
 											{
-												"name": "Copy data1",
+												"name": "Copy employee",
 												"type": "Copy",
 												"dependsOn": [
 													{
@@ -867,7 +867,7 @@
 															"type": "AzureBlobStorageReadSettings",
 															"recursive": true,
 															"wildcardFileName": {
-																"value": "@variables('file')",
+																"value": "@item().name",
 																"type": "Expression"
 															},
 															"enablePartitionDiscovery": false
