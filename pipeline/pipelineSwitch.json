@@ -85,7 +85,7 @@
 								},
 								"ifFalseActivities": [
 									{
-										"name": "Set variable3",
+										"name": "set whtodo to copydepartment",
 										"type": "SetVariable",
 										"dependsOn": [],
 										"policy": {
@@ -101,7 +101,7 @@
 								],
 								"ifTrueActivities": [
 									{
-										"name": "Set variable2",
+										"name": "set whtodo to copyemployee",
 										"type": "SetVariable",
 										"dependsOn": [],
 										"policy": {
@@ -124,7 +124,7 @@
 								{
 									"activity": "If Condition1",
 									"dependencyConditions": [
-										"Succeeded"
+										"Completed"
 									]
 								}
 							],
