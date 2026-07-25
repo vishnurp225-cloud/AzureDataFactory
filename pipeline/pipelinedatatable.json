@@ -40,6 +40,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup1').output.value",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "Set variable1",
@@ -64,7 +68,7 @@
 		],
 		"variables": {
 			"itemdetails": {
-				"type": "String"
+				"type": "Integer"
 			}
 		},
 		"annotations": []
