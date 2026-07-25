@@ -777,7 +777,7 @@
 															"type": "AzureBlobStorageReadSettings",
 															"recursive": true,
 															"wildcardFileName": {
-																"value": "*item().name",
+																"value": "@variables('file')",
 																"type": "Expression"
 															},
 															"enablePartitionDiscovery": false
@@ -836,7 +836,7 @@
 												"typeProperties": {
 													"variableName": "file",
 													"value": {
-														"value": "@concat(item().name,'-')",
+														"value": "item().name",
 														"type": "Expression"
 													}
 												}
@@ -867,7 +867,7 @@
 															"type": "AzureBlobStorageReadSettings",
 															"recursive": true,
 															"wildcardFileName": {
-																"value": "*item().name",
+																"value": "@variables('file')",
 																"type": "Expression"
 															},
 															"enablePartitionDiscovery": false
@@ -924,6 +924,12 @@
 				},
 				"variables": {
 					"file": {
+						"type": "String"
+					},
+					"employeefiletocopy": {
+						"type": "String"
+					},
+					"departmentfiletocopy": {
 						"type": "String"
 					}
 				},
