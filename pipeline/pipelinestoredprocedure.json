@@ -1,6 +1,42 @@
 {
 	"name": "pipelinestoredprocedure",
 	"properties": {
+		"activities": [
+			{
+				"name": "SP-DeleteEmployee",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[emp_delete]",
+					"storedProcedureParameters": {
+						"id": {
+							"value": {
+								"value": "@pipeline().parameters.IdToDelete",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase4",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"IdToDelete": {
+				"type": "int"
+			}
+		},
 		"annotations": []
 	}
 }
