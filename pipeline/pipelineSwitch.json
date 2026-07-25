@@ -291,7 +291,10 @@
 							"userProperties": [],
 							"typeProperties": {
 								"variableName": "theforeachvalue",
-								"value": ""
+								"value": {
+									"value": "@variables('whtodo')",
+									"type": "Expression"
+								}
 							}
 						}
 					]
