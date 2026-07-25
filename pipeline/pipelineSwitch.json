@@ -95,7 +95,7 @@
 										"userProperties": [],
 										"typeProperties": {
 											"variableName": "whtodo",
-											"value": "copydepatment"
+											"value": "copydepartment"
 										}
 									}
 								],
@@ -206,7 +206,7 @@
 										"value": "copydepartment",
 										"activities": [
 											{
-												"name": "Copy data1",
+												"name": "Copy to department",
 												"type": "Copy",
 												"dependsOn": [],
 												"policy": {
