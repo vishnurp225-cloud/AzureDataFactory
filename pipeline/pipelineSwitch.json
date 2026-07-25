@@ -123,7 +123,7 @@
 							"type": "Switch",
 							"dependsOn": [
 								{
-									"activity": "If Condition1",
+									"activity": "Set the foreach value",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -272,6 +272,27 @@
 									}
 								]
 							}
+						},
+						{
+							"name": "Set the foreach value",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "If Condition1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "theforeachvalue",
+								"value": ""
+							}
 						}
 					]
 				}
@@ -282,6 +303,9 @@
 				"type": "String"
 			},
 			"whtodo": {
+				"type": "String"
+			},
+			"theforeachvalue": {
 				"type": "String"
 			}
 		},
