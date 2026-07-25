@@ -73,7 +73,7 @@
 										"typeProperties": {
 											"variableName": "file",
 											"value": {
-												"value": "item().name",
+												"value": "@item().name",
 												"type": "Expression"
 											}
 										}
@@ -161,7 +161,7 @@
 										"typeProperties": {
 											"variableName": "file",
 											"value": {
-												"value": "item().name",
+												"value": "@item().name",
 												"type": "Expression"
 											}
 										}
