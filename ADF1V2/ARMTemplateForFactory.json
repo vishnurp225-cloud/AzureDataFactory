@@ -954,6 +954,7 @@
 								"value": "@activity('Get Metadata1').output.childItems",
 								"type": "Expression"
 							},
+							"isSequential": true,
 							"activities": [
 								{
 									"name": "Set variable1",
@@ -1189,8 +1190,7 @@
 										{
 											"activity": "If Condition1",
 											"dependencyConditions": [
-												"Succeeded",
-												"Completed"
+												"Succeeded"
 											]
 										}
 									],
