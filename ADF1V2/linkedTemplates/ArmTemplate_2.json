@@ -1120,14 +1120,7 @@
 								{
 									"name": "Set the foreach value",
 									"type": "SetVariable",
-									"dependsOn": [
-										{
-											"activity": "If Condition1",
-											"dependencyConditions": [
-												"Completed"
-											]
-										}
-									],
+									"dependsOn": [],
 									"policy": {
 										"secureOutput": false,
 										"secureInput": false
