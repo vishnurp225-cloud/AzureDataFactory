@@ -18,8 +18,37 @@
 					"method": "GET",
 					"url": "https://dummy.restapiexample.com/api/v1/employees"
 				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Web1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "apiresult",
+					"value": {
+						"value": "@activity('Web1').output.data",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"apiresult": {
+				"type": "Array"
+			}
+		},
 		"annotations": []
 	}
 }
