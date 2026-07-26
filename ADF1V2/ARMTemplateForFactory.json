@@ -2090,7 +2090,7 @@
 								"mappings": [
 									{
 										"source": {
-											"path": "$['status']"
+											"path": "$['data']"
 										},
 										"sink": {
 											"path": "$['data']"
