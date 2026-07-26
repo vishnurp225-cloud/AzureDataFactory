@@ -41,6 +41,9 @@
 							{
 								"source": {
 									"path": "$['status']"
+								},
+								"sink": {
+									"path": "$['status']"
 								}
 							}
 						]
