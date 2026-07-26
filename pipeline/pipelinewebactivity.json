@@ -43,7 +43,7 @@
 									"path": "$['status']"
 								},
 								"sink": {
-									"path": "$['status']"
+									"path": "$['data']"
 								}
 							}
 						]
