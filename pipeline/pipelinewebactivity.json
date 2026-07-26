@@ -38,63 +38,21 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Json3",
+						"referenceName": "Json5",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Json4",
+						"referenceName": "Json6",
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "ForEach1",
-				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "Copy data1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@activity('Copy data1').output",
-						"type": "Expression"
-					},
-					"isSequential": true,
-					"activities": [
-						{
-							"name": "Set Webresult",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"policy": {
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "webresult",
-								"value": {
-									"value": "@item().id",
-									"type": "Expression"
-								}
-							}
-						}
-					]
-				}
 			}
 		],
 		"variables": {
-			"apiresult": {
-				"type": "Array"
-			},
-			"webresult": {
-				"type": "String"
+			"idout": {
+				"type": "Integer"
 			}
 		},
 		"annotations": []
