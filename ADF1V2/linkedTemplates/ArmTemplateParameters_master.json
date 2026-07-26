@@ -23,6 +23,9 @@
 		"AzureSqlDatabase6_password": {
 			"value": ""
 		},
+		"AzureSqlDatabase7_password": {
+			"value": ""
+		},
 		"Parameterization_LS_password": {
 			"value": ""
 		},
@@ -84,6 +87,15 @@
 			"value": "SQL1VPDB"
 		},
 		"AzureSqlDatabase6_properties_typeProperties_userName": {
+			"value": "gautham"
+		},
+		"AzureSqlDatabase7_properties_typeProperties_server": {
+			"value": "sql1vpserver.database.windows.net"
+		},
+		"AzureSqlDatabase7_properties_typeProperties_database": {
+			"value": "SQL1VPDB"
+		},
+		"AzureSqlDatabase7_properties_typeProperties_userName": {
 			"value": "gautham"
 		},
 		"HttpServer1_properties_typeProperties_url": {

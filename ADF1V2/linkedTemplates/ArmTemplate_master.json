@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase6'"
 		},
+		"AzureSqlDatabase7_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase7'"
+		},
 		"Parameterization_LS_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Parameterization_LS'"
@@ -112,6 +116,18 @@
 			"defaultValue": "SQL1VPDB"
 		},
 		"AzureSqlDatabase6_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "gautham"
+		},
+		"AzureSqlDatabase7_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql1vpserver.database.windows.net"
+		},
+		"AzureSqlDatabase7_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "SQL1VPDB"
+		},
+		"AzureSqlDatabase7_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "gautham"
 		},
@@ -204,6 +220,9 @@
 					"AzureSqlDatabase6_password": {
 						"value": "[parameters('AzureSqlDatabase6_password')]"
 					},
+					"AzureSqlDatabase7_password": {
+						"value": "[parameters('AzureSqlDatabase7_password')]"
+					},
 					"Parameterization_LS_password": {
 						"value": "[parameters('Parameterization_LS_password')]"
 					},
@@ -257,6 +276,15 @@
 					},
 					"AzureSqlDatabase6_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase6_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase7_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase7_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase7_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase7_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase7_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase7_properties_typeProperties_userName')]"
 					},
 					"HttpServer1_properties_typeProperties_url": {
 						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
@@ -319,15 +347,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"AzureSqlDatabase1_properties_typeProperties_server": {
-						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
-					},
-					"AzureSqlDatabase1_properties_typeProperties_database": {
-						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
-					},
-					"AzureSqlDatabase1_properties_typeProperties_userName": {
-						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -348,6 +367,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
 					}
 				}
 			},
