@@ -9,8 +9,7 @@
 		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "HttpServerLocation",
-				"relativeUrl": "https://dummy.restapiexample.com/api/v1/employees"
+				"type": "HttpServerLocation"
 			}
 		},
 		"schema": {}
