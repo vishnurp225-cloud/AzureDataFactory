@@ -1,0 +1,43 @@
+{
+	"name": "DelimitedText35",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sa1vp1ls1",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"StorageAccountParameter": "sa1vp1"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "emp_location.csv",
+				"container": "sourceconditionalsplit"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "emp_id",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "salary",
+				"type": "String"
+			},
+			{
+				"name": "address",
+				"type": "String"
+			}
+		]
+	}
+}
