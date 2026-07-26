@@ -86,6 +86,9 @@
 		"AzureSqlDatabase6_properties_typeProperties_userName": {
 			"value": "gautham"
 		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://dummy.restapiexample.com/api/v1/employees"
+		},
 		"LS_Keyvault_Dev_properties_typeProperties_baseUrl": {
 			"value": "https://KV-Dev-VP.vault.azure.net/"
 		},
