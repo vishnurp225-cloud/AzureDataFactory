@@ -525,8 +525,7 @@
 				"type": "Json",
 				"typeProperties": {
 					"location": {
-						"type": "HttpServerLocation",
-						"relativeUrl": "https://dummy.restapiexample.com/api/v1/employees"
+						"type": "HttpServerLocation"
 					}
 				},
 				"schema": {}
@@ -540,13 +539,20 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "sa1vp1ls1",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"StorageAccountParameter": "sa1vp1"
+					}
 				},
 				"annotations": [],
 				"type": "Json",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@concat('web','output.json')",
+							"type": "Expression"
+						},
 						"container": "outputjson"
 					}
 				},
