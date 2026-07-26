@@ -21,15 +21,11 @@
 				"typeProperties": {
 					"scripts": [
 						{
-							"parameters": [
-								{
-									"name": "Id",
-									"type": "Int32",
-									"value": "",
-									"direction": "Input"
-								}
-							],
-							"type": "Query"
+							"type": "Query",
+							"text": {
+								"value": "@concat('EXEC dbo.[GetEmployeeDetails] @Id=',pipeline().parameters.IdToDelete)",
+								"type": "Expression"
+							}
 						}
 					],
 					"scriptBlockExecutionTimeout": "02:00:00"
