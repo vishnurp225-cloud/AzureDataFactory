@@ -35,6 +35,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase7'"
 		},
+		"AzureSqlDatabase8_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase8'"
+		},
 		"Parameterization_LS_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Parameterization_LS'"
@@ -116,6 +120,18 @@
 			"defaultValue": "SQL1VPDB"
 		},
 		"AzureSqlDatabase7_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "gautham"
+		},
+		"AzureSqlDatabase8_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql1vpserver.database.windows.net"
+		},
+		"AzureSqlDatabase8_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "SQL1VPDB"
+		},
+		"AzureSqlDatabase8_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "gautham"
 		},
@@ -296,6 +312,28 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('AzureSqlDatabase7_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase8')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('AzureSqlDatabase8_properties_typeProperties_server')]",
+					"database": "[parameters('AzureSqlDatabase8_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('AzureSqlDatabase8_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('AzureSqlDatabase8_password')]"
 					}
 				}
 			},
@@ -655,71 +693,43 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Binary1')]",
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable4')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "sa1vp1ls1",
+					"referenceName": "AzureSqlDatabase8",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "Binary",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "EmployeeDetails.csv",
-						"container": "input"
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "emp_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "name",
+						"type": "varchar"
+					},
+					{
+						"name": "salary",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "loc",
+						"type": "varchar"
 					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Employee_Alter"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/sa1vp1ls1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "sa1vp1ls1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "EmployeeDetails.csv",
-						"container": "input"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Employee Name",
-						"type": "String"
-					},
-					{
-						"name": "Employee ID",
-						"type": "String"
-					},
-					{
-						"name": "Location",
-						"type": "String"
-					},
-					{
-						"name": "Job",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/sa1vp1ls1')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase8')]"
 			]
 		}
 	]

@@ -35,6 +35,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase7'"
 		},
+		"AzureSqlDatabase8_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase8'"
+		},
 		"Parameterization_LS_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Parameterization_LS'"
@@ -131,6 +135,18 @@
 			"type": "string",
 			"defaultValue": "gautham"
 		},
+		"AzureSqlDatabase8_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql1vpserver.database.windows.net"
+		},
+		"AzureSqlDatabase8_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "SQL1VPDB"
+		},
+		"AzureSqlDatabase8_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "gautham"
+		},
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://dummy.restapiexample.com/api/v1/employees"
@@ -223,6 +239,9 @@
 					"AzureSqlDatabase7_password": {
 						"value": "[parameters('AzureSqlDatabase7_password')]"
 					},
+					"AzureSqlDatabase8_password": {
+						"value": "[parameters('AzureSqlDatabase8_password')]"
+					},
 					"Parameterization_LS_password": {
 						"value": "[parameters('Parameterization_LS_password')]"
 					},
@@ -285,6 +304,15 @@
 					},
 					"AzureSqlDatabase7_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase7_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase8_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase8_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase8_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase8_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase8_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase8_properties_typeProperties_userName')]"
 					},
 					"HttpServer1_properties_typeProperties_url": {
 						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
@@ -396,6 +424,26 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADF1V2_ArmTemplate_3')]"
+			]
+		},
+		{
+			"name": "ADF1V2_ArmTemplate_5",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_5.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"Pipeline2-Trigger_properties_typeProperties_scope": {
 						"value": "[parameters('Pipeline2-Trigger_properties_typeProperties_scope')]"
@@ -409,7 +457,7 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ADF1V2_ArmTemplate_3')]"
+				"[resourceId('Microsoft.Resources/deployments', 'ADF1V2_ArmTemplate_4')]"
 			]
 		}
 	]
