@@ -43,7 +43,7 @@
 				"     desc(salary, true),",
 				"     Rank = rowNumber(),",
 				"     partitionBy('hash', 1)) ~> window1",
-				"window1 filter(ERROR_FUNCTION('')) ~> filter1",
+				"window1 filter(lesserOrEqual(Rank, 2)) ~> filter1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
