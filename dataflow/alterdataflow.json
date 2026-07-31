@@ -31,7 +31,7 @@
 			],
 			"scriptLines": [
 				"source(output(",
-				"          emp_id as string,",
+				"          emp_id as integer,",
 				"          name as string,",
 				"          salary as integer,",
 				"          loc as string",
@@ -39,7 +39,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"derivedColumn1 alterRow(updateIf(name=='manish')) ~> alterRow1",
+				"derivedColumn1 alterRow(updateIf(emp_id==1)) ~> alterRow1",
 				"source1 derive(salary = iif(name=='manish',101,salary)) ~> derivedColumn1",
 				"alterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
