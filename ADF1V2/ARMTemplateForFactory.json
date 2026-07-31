@@ -5036,7 +5036,7 @@
 						"     insertable:true,",
 						"     updateable:true,",
 						"     upsertable:false,",
-						"     keys:['salary'],",
+						"     keys:['emp_id'],",
 						"     format: 'table',",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true,",
