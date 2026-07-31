@@ -27,6 +27,9 @@
 				},
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "filter1"
 				}
 			],
 			"scriptLines": [
@@ -40,7 +43,8 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"derivedColumn1 alterRow(updateIf(emp_id==1)) ~> alterRow1",
-				"source1 derive(salary = iif(name=='manish',101,salary)) ~> derivedColumn1",
+				"filter1 derive(salary = iif(name=='manish',101,salary)) ~> derivedColumn1",
+				"source1 filter(emp_id==1) ~> filter1",
 				"alterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
